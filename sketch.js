@@ -9,7 +9,7 @@ var score,PLAY = 1,END = 0,gameState = PLAY,gameover,goimg,restart, rimg;
 
 
 function preload(){
-  trex_running = loadAnimation("images/trex1.png","images/trex3.png","images/trex4.png");
+  trex_running = loadImage("images/trex1.png","images/trex3.png","images/trex4.png");
   trex_collided = loadImage("images/trex_collided.png");
   
   groundImage = loadImage("images/ground2.png");
@@ -33,7 +33,7 @@ function setup() {
   createCanvas(displayWidth-10,displayHeight-150);
   
   trex = createSprite(displayWidth/2-550,displayHeight/2,20,50);
-  trex.addAnimation("running", trex_running);
+  trex.addImage("running", trex_running);
   trex.scale = 0.5;
   
   ground = createSprite(displayWidth/2,displayHeight/2,400,20);
