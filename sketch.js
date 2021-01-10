@@ -121,6 +121,7 @@ function draw() {
     }
   }
   
+  
   drawSprites();
 }
 
@@ -133,14 +134,12 @@ function spawnClouds() {
     cloud.scale = 0.5;
    // cloud.velocityX = -3;
     
-   
+     
     cloud.lifetime = 200;
-    
-    
+ 
     cloud.depth = trex.depth;
     trex.depth = trex.depth + 1;
     
-   
     cloudsGroup.add(cloud);
   }
   
@@ -152,7 +151,6 @@ function spawnObstacles() {
     //obstacle.debug = true;
     obstacle.velocityX = -(6 + 3*score/100);
     
-    //generate random obstacles
     var rand = Math.round(random(1,6));
     switch(rand) {
       case 1: obstacle.addImage(obstacle1);
@@ -169,11 +167,10 @@ function spawnObstacles() {
               break;
       default: break;
     }
-    
-    //assign scale and lifetime to the obstacle           
+            
     obstacle.scale = 0.5;
     obstacle.lifetime = 300;
-    //add each obstacle to the group
+ 
     obstaclesGroup.add(obstacle);
   }
 }
