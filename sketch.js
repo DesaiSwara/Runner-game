@@ -3,7 +3,7 @@ var END = 0;
 var gameState = PLAY;
 
 var trex, trex_running, trex_collided;
-var ground, invisibleGround, groundImage;
+var ground, invisibleGround, groundImage,backgroundImg;
 
 var cloudsGroup, cloudImage;
 var obstaclesGroup, obstacle1, obstacle2, obstacle3, obstacle4, obstacle5, obstacle6;
@@ -18,7 +18,7 @@ function preload(){
   trex_collided = loadAnimation("trex_collided.png");
   
   groundImage = loadImage("ground2.png");
-  
+  backgroundImg = loadImage("background.jpg")
   cloudImage = loadImage("cloud.png");
   
   obstacle1 = loadImage("obstacle1.png");
@@ -69,7 +69,7 @@ function setup() {
 
 function draw() {
   //trex.debug = true;
-  background(255);
+  background(backgroundImg);
   
   push() 
   textFont('Georgia');
@@ -126,7 +126,7 @@ function draw() {
 }
 
 function spawnClouds() {
-  
+  //write code here to spawn the clouds
   if (frameCount % 60 === 0) {
     var cloud = createSprite(600,120,40,10);
     cloud.y = Math.round(random(80,120));
@@ -134,16 +134,19 @@ function spawnClouds() {
     cloud.scale = 0.5;
    // cloud.velocityX = -3;
     
-     
+     //assign lifetime to the variable
     cloud.lifetime = 200;
- 
+    
+    //adjust the depth
     cloud.depth = trex.depth;
     trex.depth = trex.depth + 1;
     
+    //add each cloud to the group
     cloudsGroup.add(cloud);
   }
   
 }
+
 
 function spawnObstacles() {
   if(frameCount % 60 === 0) {
@@ -167,10 +170,9 @@ function spawnObstacles() {
               break;
       default: break;
     }
-            
+              
     obstacle.scale = 0.5;
     obstacle.lifetime = 300;
- 
     obstaclesGroup.add(obstacle);
   }
 }
